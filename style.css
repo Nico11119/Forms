@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-  color: #2c3e50;
+  color: #2c3e51;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -104,4 +104,5 @@ a:hover {
   flex-direction: column;
   gap: 15px;
   border-color: black;
+
 }
