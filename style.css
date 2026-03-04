@@ -1,0 +1,107 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(222, 191, 138, 1) 0%, rgba(209, 209, 209, 1) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #debf8a;
+  box-shadow: 0 0 8px rgba(222, 191, 138, 0.5);
+}
+
+.submitbutton {
+  width: 100%;
+  background-color: #2c8231;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.submitbutton:hover {
+  background-color: #1b5e20;
+}
+
+a {
+  text-decoration: none;
+  color: #2e7d32;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.Alles {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+}
+
+/* ====== Übersicht ====== */
+
+.AllesÜbersicht {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.formularData {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-color: black;
+}
