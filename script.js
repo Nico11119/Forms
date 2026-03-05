@@ -31,14 +31,8 @@ function onSubmitClick(event) {
 }
 
 const formElement = document.getElementById("personalData");
-if(formElement){
+if (formElement) {
   formElement.addEventListener("submit", onSubmitClick);
-}
-
-const submitbutton = document.querySelector("#submitbutton");
-
-if (submitbutton) {
-  submitbutton.addEventListener("click", onSubmitClick);
 }
 
 // ======= Übersicht =========
@@ -52,31 +46,30 @@ function formsAnzeigen() {
   formDataDiv.innerHTML = "";
 
   if (!alleFormulare || alleFormulare.length === 0) {
-    formDataDiv.innerHTML = "<p>Keine Daten gefunden :(</p>";
+    formDataDiv.innerHTML = "<p>Keine Formulare gefunden :(</p>";
   } else {
     let html = "";
     alleFormulare.forEach((Person, i) => {
-      html += "<div><h3>Formular " + (i + 1) + "</h3>";
+      html += "<div><h2>Formular " + (i + 1) + "</h2>";
       for (const key in Person) {
         html += "<p><strong>" + key + ":</strong> " + Person[key] + "</p>";
       }
-      html += "</div>";
+      html += `<button onclick="einzelnenEintragLöschen(${i})">Eintrag löschen</button>`;
+      html += "</div><hr>";
     });
     formDataDiv.innerHTML = html;
   }
 }
 
-function einzelenenEntragLöschen(index){
-  let alleFormulare = JSON.parse(localStorage.getItem("personalData")) || [];
-
-  alleFormulare.splice(index, 1);
-
-  localStorage.setItem("personData", JSON.stringify(alleFormulare));
+function einzelnenEintragLöschen(index) {
+  let listeDerPersonen = JSON.parse(localStorage.getItem("personData")) || [];
+  listeDerPersonen.splice(index, 1);
+  localStorage.setItem("personData", JSON.stringify(listeDerPersonen));
   formsAnzeigen();
 }
 
 function eintragLöschen() {
-  if (confirm("Formulare wirklich löschen?")) {
+  if (confirm("Möchtest du wirklich alle Formulare löschen?")) {
     localStorage.removeItem("personData");
     formsAnzeigen();
   }
