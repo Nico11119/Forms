@@ -42,7 +42,6 @@ if (formElement) {
 
 // ======= Übersicht =========
 
-
 const formDataDiv = document.getElementById("formularData");
 
 // formulardaten werden angzeigt
@@ -50,24 +49,41 @@ function formsAnzeigen() {
   if (!formDataDiv) return;
 
   //alles aus dem localstorage holen
-  const alleFormulare = JSON.parse(localStorage.getItem("personData"));
+  const alleFormulare = JSON.parse(localStorage.getItem("personData")) || [];
   formDataDiv.innerHTML = "";
 
   //wenn keine daten da sind, wird die angezeigt, dass nix da ist, sonst wird es angezeigt
   if (!alleFormulare || alleFormulare.length === 0) {
     formDataDiv.innerHTML = "<p>Keine Formulare gefunden :(</p>";
   } else {
-    let html = "";
     alleFormulare.forEach((Person, i) => {
-      html += "<div><h2>Formular " + (i + 1) + "</h2>";
+      const container = document.createElement("div");
+
+      const überschrift = document.createElement("h2");
+      überschrift.textContent = "Formular " + (i + 1);
+      container.appendChild(überschrift);
+
       for (const key in Person) {
-        html += "<p><strong>" + key + ":</strong> " + Person[key] + "</p>";
+        const p = document.createElement("p");
+
+        const fett = document.createElement("strong");
+        fett.textContent = key + ": ";
+
+        p.appendChild(fett);
+        p.append(Person[key]);
+
+        container.appendChild(p);
       }
-      // fügt button hinzu zum eintrag löschen
-      html += `<button onclick="einzelnenEintragLöschen(${i})">Eintrag löschen</button>`;
-      html += "</div><hr>";
+      const löschenButton = document.createElement("button");
+      löschenButton.textContent = "Eintrag Löschen";
+      löschenButton.onclick = () => einzelnenEintragLöschen(i);
+      container.appendChild(löschenButton);
+
+      const hr = document.createElement("hr");
+      container.appendChild(hr);
+
+      formDataDiv.appendChild(container);
     });
-    formDataDiv.innerHTML = html;
   }
 }
 
